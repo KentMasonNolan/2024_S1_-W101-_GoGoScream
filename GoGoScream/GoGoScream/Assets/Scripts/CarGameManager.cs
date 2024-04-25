@@ -15,7 +15,6 @@ public class CarGameManager : MonoBehaviour
         index = PlayerPrefs.GetInt("carIndex");
         GameObject car = Instantiate(cars[index], startPos, Quaternion.identity);
         car.AddComponent<PlayerController>();
-        car.AddComponent<CheckpointSingle>();
         car.name = "Player";
     }
 
