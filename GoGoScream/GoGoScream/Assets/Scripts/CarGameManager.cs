@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class CarGameManager : MonoBehaviour
 {
@@ -11,12 +13,23 @@ public class CarGameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
-        index = PlayerPrefs.GetInt("carIndex");
-        GameObject car = Instantiate(cars[index], startPos, Quaternion.identity);
-        car.AddComponent<PlayerController>();
-        car.name = "Player";
+    {
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            index = PlayerPrefs.GetInt("carIndex");
+
+            // Instantiate the car for the network
+            GameObject car = PhotonNetwork.Instantiate(cars[index].name, startPos, Quaternion.identity);
+
+            // Check if the local player owns this car
+            if (car.GetComponent<PhotonView>().IsMine)
+            {
+                car.AddComponent<PlayerController>();
+                car.name = "Player";
+            }
+        }
     }
+
 
     // Update is called once per frame
     void Update()

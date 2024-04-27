@@ -380,6 +380,7 @@
 "Assets/Scripts/CheckpointSingle.cs"
 "Assets/Scripts/DriveMenu.cs"
 "Assets/Scripts/FollowPlayer.cs"
+"Assets/Scripts/LobbyManager.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Rotate.cs"
 "Assets/Scripts/TracklCheckpoints.cs"
