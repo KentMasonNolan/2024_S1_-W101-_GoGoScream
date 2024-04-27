@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro; // Add this for TextMeshPro support
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class LobbyManager : MonoBehaviour
 
             // Try joining the room by name
             PhotonNetwork.JoinOrCreateRoom(lobbyName, roomOptions, TypedLobby.Default);
+            SceneManager.LoadScene("Selection");
         }
         else
         {
