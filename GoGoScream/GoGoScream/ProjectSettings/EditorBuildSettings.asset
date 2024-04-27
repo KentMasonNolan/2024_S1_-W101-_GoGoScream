@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Track 2.unity
     guid: ccd9e0d11c47449968ad2b8e0fdba80a
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 864a0ec315be9477d85d9add745b7071
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerHostScreen.unity
+    guid: f278da7abbbd1bb4ebe837b92427a9d4
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: bd02cc87ea5044e0bb725059ea2896bd, type: 2}
