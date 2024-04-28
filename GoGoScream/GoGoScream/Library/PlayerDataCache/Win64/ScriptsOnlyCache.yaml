@@ -1,7 +1,5 @@
 ScriptsOnlyBuild:
   usedScripts:
-    Assembly-CSharp-Editor.dll:
-    - ReadmeEditor
     Assembly-CSharp.dll:
     - CarGameManager
     - CarSelection
@@ -10,16 +8,16 @@ ScriptsOnlyBuild:
     - FollowPlayer
     - LobbyManager
     - PlayerController
-    - Readme
     - Rotate
     - TrackSelection
     - TracklCheckpoints
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
+    - Photon.Pun.PhotonTransformView
     - Photon.Pun.PhotonTransformViewClassic
     - Photon.Pun.PhotonView
     - Photon.Pun.ServerSettings
+    Unity.AdaptivePerformance.Simulator.Editor.dll:
+    - UnityEditor.AdaptivePerformance.Simulator.Editor.SimulatorProviderSettings
     Unity.PlasticSCM.Editor.dll:
     - Unity.PlasticSCM.Editor.PlasticWindow
     Unity.Rider.Editor.dll:
@@ -91,51 +89,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: CarSelection
-    methodName: Prev
-  - assembly: Assembly-CSharp
-    fullTypeName: TrackSelection
-    methodName: OnClick
-  - assembly: Assembly-CSharp
-    fullTypeName: TrackSelection
-    methodName: OnClick
-  - assembly: Assembly-CSharp
-    fullTypeName: DriveMenu
-    methodName: clickBack
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: CarSelection
-    methodName: Next
-  - assembly: Assembly-CSharp
-    fullTypeName: CarSelection
-    methodName: Race
-  - assembly: Assembly-CSharp
-    fullTypeName: DriveMenu
-    methodName: clickBack
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: DriveMenu
-    methodName: clickBack
-  - assembly: Assembly-CSharp
-    fullTypeName: DriveMenu
-    methodName: clickBack
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
     fullTypeName: DriveMenu
     methodName: clickHost
   - assembly: UnityEngine.CoreModule
@@ -168,6 +121,57 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: DriveMenu
     methodName: clickJoin
+  - assembly: Assembly-CSharp
+    fullTypeName: CarSelection
+    methodName: Prev
+  - assembly: Assembly-CSharp
+    fullTypeName: TrackSelection
+    methodName: OnClick
+  - assembly: Assembly-CSharp
+    fullTypeName: TrackSelection
+    methodName: OnClick
+  - assembly: Assembly-CSharp
+    fullTypeName: DriveMenu
+    methodName: clickBack
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: CarSelection
+    methodName: Next
+  - assembly: Assembly-CSharp
+    fullTypeName: CarSelection
+    methodName: Race
+  - assembly: Assembly-CSharp
+    fullTypeName: LobbyManager
+    methodName: HostLobbyTest
+  - assembly: Assembly-CSharp
+    fullTypeName: LobbyManager
+    methodName: JoinLobby
+  - assembly: Assembly-CSharp
+    fullTypeName: DriveMenu
+    methodName: clickBack
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: DriveMenu
+    methodName: clickBack
+  - assembly: Assembly-CSharp
+    fullTypeName: DriveMenu
+    methodName: clickBack
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   - assembly: Assembly-CSharp
     fullTypeName: LobbyManager
     methodName: HostLobby
@@ -316,6 +320,89 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1582}
+    - Class: 114
+      Script: {instanceID: 1584}
+    - Class: 114
+      Script: {instanceID: 1638}
+    - Class: 114
+      Script: {instanceID: 1928}
+    - Class: 114
+      Script: {instanceID: 2016}
+    - Class: 114
+      Script: {instanceID: 2692}
+    - Class: 114
+      Script: {instanceID: 2914}
+    - Class: 114
+      Script: {instanceID: 3130}
+    - Class: 114
+      Script: {instanceID: 4072}
+    - Class: 114
+      Script: {instanceID: 4328}
+    - Class: 114
+      Script: {instanceID: 5256}
+    - Class: 114
+      Script: {instanceID: 5306}
+    - Class: 114
+      Script: {instanceID: 5974}
+    - Class: 114
+      Script: {instanceID: 6314}
+    - Class: 114
+      Script: {instanceID: 7246}
+    - Class: 114
+      Script: {instanceID: 7798}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/StartMenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
     - Class: 54
@@ -353,74 +440,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3130}
     - Class: 114
-      Script: {instanceID: 4072}
-    - Class: 114
       Script: {instanceID: 4262}
     - Class: 114
-      Script: {instanceID: 4328}
-    - Class: 114
       Script: {instanceID: 4532}
-    - Class: 114
-      Script: {instanceID: 5256}
-    - Class: 114
-      Script: {instanceID: 5306}
-    - Class: 114
-      Script: {instanceID: 5974}
-    - Class: 114
-      Script: {instanceID: 6314}
-    - Class: 114
-      Script: {instanceID: 7246}
-    - Class: 114
-      Script: {instanceID: 7914}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/StartMenu.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1582}
-    - Class: 114
-      Script: {instanceID: 1584}
-    - Class: 114
-      Script: {instanceID: 1638}
-    - Class: 114
-      Script: {instanceID: 2016}
-    - Class: 114
-      Script: {instanceID: 2692}
-    - Class: 114
-      Script: {instanceID: 2914}
     - Class: 114
       Script: {instanceID: 5180}
     - Class: 114
@@ -430,10 +452,18 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6314}
     - Class: 114
+      Script: {instanceID: 7246}
+    - Class: 114
+      Script: {instanceID: 7798}
+    - Class: 114
+      Script: {instanceID: 7914}
+    - Class: 114
       Script: {instanceID: 23414}
     - Class: 114
       Script: {instanceID: 23416}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -512,6 +542,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6314}
     - Class: 114
       Script: {instanceID: 7246}
+    - Class: 114
+      Script: {instanceID: 7798}
     - Class: 114
       Script: {instanceID: 7808}
     - Class: 114
@@ -597,6 +629,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6314}
     - Class: 114
       Script: {instanceID: 7246}
+    - Class: 114
+      Script: {instanceID: 7798}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -1846,10 +1880,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
+  - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/Selection.unity
   - Assets/Scenes/MultiplayerLobby.unity
   - Assets/Scenes/Track 1.unity
   - Assets/Scenes/Track 2.unity
-  - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/MultiplayerHostScreen.unity
   playerPath: D:/2024_S1_(W101)_GoGoScream/GoGoScream/GoGoScream/Build/GoGoScream.exe

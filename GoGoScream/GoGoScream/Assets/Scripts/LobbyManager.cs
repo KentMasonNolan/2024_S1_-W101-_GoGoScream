@@ -20,6 +20,7 @@ public class LobbyManager : MonoBehaviour
         }
 
 
+
         if (lobbyNameInputField == null)
         {
             Debug.LogError("TMP_InputField is not assigned in the inspector!");
@@ -46,6 +47,8 @@ public class LobbyManager : MonoBehaviour
         {
             // Try joining the room by name
             PhotonNetwork.JoinRoom(lobbyName);
+
+            SceneManager.LoadScene("Selection");
         }
         else
         {
@@ -70,6 +73,31 @@ public class LobbyManager : MonoBehaviour
             Debug.Log("Room created: " + lobbyName);
 
             SceneManager.LoadScene("Selection");
+        }
+        else
+        {
+            Debug.LogError("Lobby Name is empty or invalid");
+        }
+    }
+
+    public void HostLobbyTest() // just for testing joining servers
+    {
+
+        string lobbyName = "test";
+
+        if (!string.IsNullOrEmpty(lobbyName))
+        {
+            RoomOptions roomOptions = new RoomOptions
+            {
+                MaxPlayers = 4, // Set the max players for the room
+                IsOpen = true,  // Make sure it is open
+            };
+
+            // Create the room by name
+            PhotonNetwork.CreateRoom(lobbyName, roomOptions, TypedLobby.Default);
+            Debug.Log("Room created: " + lobbyName);
+
+           /* SceneManager.LoadScene("Selection");*/
         }
         else
         {

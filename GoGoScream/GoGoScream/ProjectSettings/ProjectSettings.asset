@@ -828,11 +828,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 8500763d-c466-4057-bfff-c88f6f8877c5
+  cloudProjectId: 3183e421-0ca3-402c-9295-d943c01dd715
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GoGoScream 2024-04-09_12-47-07
-  organizationId: alexa-alvaran
+  projectName: GoGoScream
+  organizationId: kentnolan
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
