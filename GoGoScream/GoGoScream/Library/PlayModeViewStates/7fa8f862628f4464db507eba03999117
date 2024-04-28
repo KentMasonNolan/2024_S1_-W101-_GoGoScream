@@ -24,7 +24,7 @@ MonoBehaviour:
     x: 353
     y: 73
     width: 1109
-    height: 457
+    height: 470
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1109, y: 436}
+  m_TargetSize: {x: 1109, y: 449}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -53,8 +53,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -554.5
     m_HBaseRangeMax: 554.5
-    m_VBaseRangeMin: -218
-    m_VBaseRangeMax: 218
+    m_VBaseRangeMin: -224.5
+    m_VBaseRangeMax: 224.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -73,9 +73,9 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 1109
-      height: 436
+      height: 449
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 554.5, y: 218}
+    m_Translation: {x: 554.5, y: 224.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -83,12 +83,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -554.5
-      y: -218
+      y: -224.5
       width: 1109
-      height: 436
+      height: 449
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1109, y: 457}
+  m_LastWindowPixelSize: {x: 1109, y: 470}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000

@@ -13,11 +13,16 @@ public class FollowPlayer : MonoBehaviour
         if (PhotonNetwork.IsConnected) // Check if using Photon
         {
             // Find the local player's GameObject
-            player = GameObject.FindWithTag("Player"); // Ensure your player GameObject has the tag 'Player'
+
+            /* player = GameObject.FindWithTag("Player"); // Ensure your player GameObject has the tag 'Player'*/
+            player = GameObject.Find("Player");
+            Debug.Log("Found with tag: " + (player != null ? player.name : "null"));
+
         }
         else
         {
             player = GameObject.Find("Player"); // Fallback if not connected to Photon
+            Debug.Log("Found without tag: " + player);
         }
 
         if (player == null)

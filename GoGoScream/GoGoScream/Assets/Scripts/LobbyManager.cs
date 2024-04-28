@@ -38,17 +38,37 @@ public class LobbyManager : MonoBehaviour
 
     }
 
-    public void JoinOrCreateLobby()
+    public void JoinLobby()
     {
         string lobbyName = lobbyNameInputField.text;
 
         if (!string.IsNullOrEmpty(lobbyName))
         {
-            RoomOptions roomOptions = new RoomOptions();
-            roomOptions.MaxPlayers = 4; // Set the max players for the room
-
             // Try joining the room by name
-            PhotonNetwork.JoinOrCreateRoom(lobbyName, roomOptions, TypedLobby.Default);
+            PhotonNetwork.JoinRoom(lobbyName);
+        }
+        else
+        {
+            Debug.LogError("Lobby Name is empty or invalid");
+        }
+    }
+
+    public void HostLobby()
+    {
+        string lobbyName = lobbyNameInputField.text;
+
+        if (!string.IsNullOrEmpty(lobbyName))
+        {
+            RoomOptions roomOptions = new RoomOptions
+            {
+                MaxPlayers = 4, // Set the max players for the room
+                IsOpen = true,  // Make sure it is open
+            };
+
+            // Create the room by name
+            PhotonNetwork.CreateRoom(lobbyName, roomOptions, TypedLobby.Default);
+            Debug.Log("Room created: " + lobbyName);
+
             SceneManager.LoadScene("Selection");
         }
         else
@@ -56,6 +76,8 @@ public class LobbyManager : MonoBehaviour
             Debug.LogError("Lobby Name is empty or invalid");
         }
     }
+
+
 
     public void OnJoinedRoom()
     {

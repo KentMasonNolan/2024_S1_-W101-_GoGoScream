@@ -53,8 +53,8 @@ public class CarGameManager : MonoBehaviour
 
         if (photonView.IsMine)
         {
-            car.AddComponent<PlayerController>();
             car.name = "Player";
+
         }
     }
 
