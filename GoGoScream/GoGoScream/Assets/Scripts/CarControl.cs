@@ -17,6 +17,8 @@ public class CarControl : MonoBehaviour
     public float audioThreshold = 0.01f; //Threshold for detecting audio, adjust based on testing
     public float horizontalInput;
     public float moveForwardInput;
+    private float speedTimer = 3.0f;
+    private float powerupMultiplier = 125.0f;
 
 
     // Start is called before the first frame update
@@ -58,6 +60,19 @@ public class CarControl : MonoBehaviour
         //Apply the calculated speed to move the car forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Powerup")) {
+            speedMultiplier = powerupMultiplier;
+            Destroy(other.gameObject);
+            StartCoroutine(PowerupCountdownRoutine());
+        }
+    }
+
+    IEnumerator PowerupCountdownRoutine() {
+        yield return new WaitForSeconds(speedTimer);
+        speedMultiplier = 100.0f;
     }
 
 }
