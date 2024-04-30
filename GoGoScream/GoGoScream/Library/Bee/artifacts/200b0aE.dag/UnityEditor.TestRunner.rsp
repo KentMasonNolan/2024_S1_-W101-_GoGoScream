@@ -112,10 +112,6 @@
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"/Applications/Unity/Hub/Editor/2021.3.35f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll"
--r:"/Applications/Unity/Hub/Editor/2021.3.35f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll"
--r:"/Applications/Unity/Hub/Editor/2021.3.35f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll"
--r:"/Applications/Unity/Hub/Editor/2021.3.35f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -326,11 +322,11 @@
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
--r:"/Users/alei/Desktop/GoGoScream/GoGoScream/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
--r:"/Users/alei/Desktop/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.dll"
--r:"/Users/alei/Desktop/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.Mdb.dll"
--r:"/Users/alei/Desktop/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.Pdb.dll"
--r:"/Users/alei/Desktop/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.Rocks.dll"
+-r:"/Users/jamesduong/GoGoStream/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"/Users/jamesduong/GoGoStream/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.dll"
+-r:"/Users/jamesduong/GoGoStream/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.Mdb.dll"
+-r:"/Users/jamesduong/GoGoStream/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.Pdb.dll"
+-r:"/Users/jamesduong/GoGoStream/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.nuget.mono-cecil@1.10.2/Mono.Cecil.Rocks.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.TestRunner.ref.dll"
 "Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/Api/Analytics/AnalyticsReporter.cs"
 "Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/Api/Analytics/AnalyticsTestCallback.cs"
