@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 50.0f;
+    private float speed = 30.0f;
     private float turnSpeed = 100.0f;
     private float horizontalInput;
     private float forwardInput;
+
+    private float powerupSpeed = 40.0f;
+    private float powerdownSpeed = 20.0f;
+    private float speedTimer = 5;
+    // public GameObject powerupIndicator;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +31,20 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
         //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizontalInput);
         
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("powerup")) {
+            speed = powerupSpeed;
+            Destroy(other.gameObject);
+            // powerupIndicator.SetActive(true);
+            StartCoroutine(PowerupCountdownRoutine());
+        }
+    }
+
+    IEnumerator PowerupCountdownRoutine() {
+        yield return new WaitForSeconds(speedTimer);
+        speed = powerdownSpeed;
+        // powerupIndicator.SetActive(false);
     }
 }
