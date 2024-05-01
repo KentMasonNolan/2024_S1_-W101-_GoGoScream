@@ -14,8 +14,8 @@ public class CarGameManager : MonoBehaviour
     {   
         index = PlayerPrefs.GetInt("carIndex");
         GameObject car = Instantiate(cars[index], startPos, Quaternion.identity);
-       
         car.name = "Player";
+        car.AddComponent<CarControl>();
     }
 
     // Update is called once per frame
