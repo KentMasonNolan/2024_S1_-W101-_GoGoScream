@@ -18,7 +18,7 @@ public class CarControl : MonoBehaviour
     public float horizontalInput;
     public float moveForwardInput;
     private float speedTimer = 3.0f;
-    private float powerupMultiplier = 125.0f;
+    private float powerupMultiplier = 550.0f;
 
 
     // Start is called before the first frame update
@@ -72,7 +72,7 @@ public class CarControl : MonoBehaviour
 
     IEnumerator PowerupCountdownRoutine() {
         yield return new WaitForSeconds(speedTimer);
-        speedMultiplier = 100.0f;
+        speedMultiplier = 500.0f;
     }
 
 }
