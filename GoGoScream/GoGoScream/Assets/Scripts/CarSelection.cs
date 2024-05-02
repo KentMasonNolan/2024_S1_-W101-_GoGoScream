@@ -100,18 +100,32 @@ public class CarSelection : MonoBehaviour
         }
 
 
-    }  
+    }
 
     public void Race()
     {
-        if(trackSelection.getTrack() == "Select1")
+        string trackName = "";
+        string selectedTrack = trackSelection.getTrack(); // Get the selected track object name
+
+        // Map the object names to the corresponding scene names
+        if (selectedTrack == "Select1")
         {
-            SceneManager.LoadScene("Track 1");
+            trackName = "Track 1";
+        }
+        else if (selectedTrack == "Select2")
+        {
+            trackName = "Track 2";
         }
 
-        else if(trackSelection.getTrack() == "Select2")
+        // Load the mapped scene name
+        if (!string.IsNullOrEmpty(trackName))
         {
-            SceneManager.LoadScene("Track 2");
+            SceneManager.LoadScene(trackName);
+        }
+        else
+        {
+            Debug.LogError("Selected track does not have a corresponding scene name.");
         }
     }
+
 }

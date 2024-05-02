@@ -9,11 +9,16 @@ public class DriveMenu : MonoBehaviour
    
    public void clickOffline()
    {
-     SceneManager.LoadScene("Selection");
+     SceneManager.LoadScene("OfflineSelection");
    }
-  
 
-  public void clickJoin()
+    public void clickHost()
+    {
+        SceneManager.LoadScene("MultiplayerHostScreen");
+    }
+
+
+    public void clickJoin()
   {
         SceneManager.LoadScene("MultiplayerLobby");
        
