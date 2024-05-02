@@ -17,6 +17,7 @@ public class LobbyManager : MonoBehaviour
         if (!PhotonNetwork.IsConnected)
         {
             PhotonNetwork.ConnectUsingSettings();
+
         }
 
 
@@ -55,6 +56,8 @@ public class LobbyManager : MonoBehaviour
             Debug.LogError("Lobby Name is empty or invalid");
         }
     }
+
+
 
     public void HostLobby()
     {

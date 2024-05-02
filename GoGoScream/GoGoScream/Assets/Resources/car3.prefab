@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: -1744148544178003860}
   - component: {fileID: 3665998799888290874}
   - component: {fileID: -5872485441415015888}
-  - component: {fileID: -8441550870373833073}
   - component: {fileID: -6894667718246318008}
   - component: {fileID: -5334764217675193327}
   m_Layer: 0
@@ -290,7 +289,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: -5872485441415015888}
@@ -330,27 +329,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-8441550870373833073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230717829739102345}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d10715992dfbb42e0abbfe1016ec7054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilt: 0
-  joystick: {fileID: 0}
-  canvas: {fileID: 0}
-  turnSpeed: 0
-  baseSpeed: 0
-  speedMultiplier: 500
-  audioThreshold: 0.01
-  horizontalInput: 0
-  moveForwardInput: 0
 --- !u!82 &-6894667718246318008
 AudioSource:
   m_ObjectHideFlags: 0

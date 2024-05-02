@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class CarGameManager : MonoBehaviour
+public class CarGameManager : MonoBehaviourPunCallbacks
 {
     public int index;
     public GameObject[] cars;
@@ -21,6 +21,7 @@ public class CarGameManager : MonoBehaviour
         }
 
         // Get carIndex from PlayerPrefs with a default value if not set
+
         index = PlayerPrefs.GetInt("carIndex", 0); // Default to 0 if carIndex isn't set
 
         // Check if the cars array is properly initialized and index is within bounds
@@ -55,7 +56,44 @@ public class CarGameManager : MonoBehaviour
         if (photonView.IsMine)
         {
             car.name = "Player";
+            car.tag = "Player";
+/*            photonView.OwnershipTransfer = OwnershipOption.Takeover;*/
 
+        }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        base.OnPlayerEnteredRoom(newPlayer);
+
+        // Check if the current instance is the master client
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ResetPlayers();
+        }
+    }
+
+    void ResetPlayers()
+    {
+        // Destroy existing player objects
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            PhotonNetwork.Destroy(player);
+        }
+
+        // Instantiate a new car for each player
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
+        {
+            // Generate a unique spawn position for each player
+
+            // Instantiate a car for the player
+            GameObject car = PhotonNetwork.Instantiate(cars[index].name, startPos, Quaternion.identity);
+            car.tag = "Player"; // Set the tag to "Player" for each car
+            car.AddComponent<OnlineCarControl>();
+
+            // Optionally, you can assign some identifier to the car to associate it with the player
+            // For example, you could use player.UserId or player.NickName
         }
     }
 
