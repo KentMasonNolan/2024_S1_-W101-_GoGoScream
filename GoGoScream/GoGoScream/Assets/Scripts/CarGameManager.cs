@@ -37,7 +37,7 @@ public class CarGameManager : MonoBehaviour
 
         // Instantiate the car for the network
         GameObject car = PhotonNetwork.Instantiate(cars[index].name, startPos, Quaternion.identity);
-        car.AddComponent<CarControl>();
+        car.AddComponent<OnlineCarControl>();
         if (car == null)
         {
             Debug.LogError("Failed to instantiate car!");
