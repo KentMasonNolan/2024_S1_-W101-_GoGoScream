@@ -29,6 +29,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OfflineTrack 1.unity
     guid: 650319b93bc665c44bda0f6d5759857b
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerJoinScreen.unity
+    guid: d85e127cc310711499d3e96999b3fb38
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLobby 2.unity
+    guid: 650f8d6ce30e44a2eb978c4fc8922f9e
+  - enabled: 1
+    path: Assets/Scenes/Online Selection.unity
+    guid: 64c9a77b1e318b046a45712fc0e85250
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerHostScreen 2.unity
+    guid: f19691c70314f5541b42642583ecf899
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 449a5f29c064d4d75aa147075bb823ba,
       type: 2}

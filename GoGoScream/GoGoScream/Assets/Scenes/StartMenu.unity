@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'host
+  m_text: 'host / join
 
 '
   m_isRightToLeft: 0
@@ -914,7 +914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4118042, y: -1.4121094}
+  m_AnchoredPosition: {x: -1.4118652, y: -1.4121094}
   m_SizeDelta: {x: -714.9017, y: -327.369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360300319
@@ -3106,7 +3106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0898132, y: -18.527298}
+  m_AnchoredPosition: {x: -1.0898438, y: -18.527283}
   m_SizeDelta: {x: 207.0695, y: 102.4449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1342071022
@@ -3507,7 +3507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1849511853
 RectTransform:
   m_ObjectHideFlags: 0

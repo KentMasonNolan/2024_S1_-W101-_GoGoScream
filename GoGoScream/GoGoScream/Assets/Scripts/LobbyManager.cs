@@ -6,120 +6,153 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
-public class LobbyManager : MonoBehaviour
+public class LobbyManager : MonoBehaviourPunCallbacks
 {
     public TMP_InputField lobbyNameInputField; // Change to TMP_InputField
+    public TMP_InputField joinLobbyNameInputField; // Change to TMP_InputField
+    public string playerPrefabName;
+    public TMP_InputField nickname;
+    public TMP_InputField JoinNickName;
+    private string lobbyName;
+    private string joinLobbyName;
 
-    // Start is called before the first frame update
-    void Start()
+    public List<playerItem> playerItemsList = new List<playerItem>();
+    public playerItem playerItemPrefab;
+    public Transform playerItemParent;
+
+    public GameObject playButton;
+
+    private void Update()
+    {
+        playButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+
+    public override void OnConnectedToMaster()
     {
 
-        if (!PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.AutomaticallySyncScene = true;
 
+        if (!string.IsNullOrEmpty(lobbyName))
+        {
+            PhotonNetwork.CreateRoom(lobbyName);
         }
-
-
-
-        if (lobbyNameInputField == null)
+        else if (!string.IsNullOrEmpty(joinLobbyName))
         {
-            Debug.LogError("TMP_InputField is not assigned in the inspector!");
+            PhotonNetwork.JoinRoom(joinLobbyName);
         }
     }
 
-    public void OnConnectedToMaster()
+    public void OnHostConnect()
     {
-        Debug.Log("Connected to Photon Master Server");
-        // Optionally, join the lobby here or enable the UI for the player to join/create a lobby
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (lobbyNameInputField != null && nickname != null)
+        {
+            lobbyName = lobbyNameInputField.text;
+            PhotonNetwork.NickName = nickname.text;
+            
+            PhotonNetwork.ConnectUsingSettings(); // In Photon, this calls OnConnectedToMaster(). This ensures the host is the "master"
+        }
+        else
+        {
+            Debug.LogWarning("LobbyNameInputField or Nickname is not assigned.");
+        }
     }
 
     public void JoinLobby()
     {
-        string lobbyName = lobbyNameInputField.text;
-
-        if (!string.IsNullOrEmpty(lobbyName))
+        if (joinLobbyNameInputField != null && nickname != null)
         {
-            // Try joining the room by name
-            PhotonNetwork.JoinRoom(lobbyName);
+            joinLobbyName = joinLobbyNameInputField.text;
+            PhotonNetwork.NickName = JoinNickName.text;
 
-            SceneManager.LoadScene("Selection");
-        }
-        else
-        {
-            Debug.LogError("Lobby Name is empty or invalid");
-        }
-    }
-
-
-
-    public void HostLobby()
-    {
-        string lobbyName = lobbyNameInputField.text;
-
-        if (!string.IsNullOrEmpty(lobbyName))
-        {
-            RoomOptions roomOptions = new RoomOptions
+            if (!string.IsNullOrEmpty(joinLobbyName))
             {
-                MaxPlayers = 4, // Set the max players for the room
-                IsOpen = true,  // Make sure it is open
-            };
-
-            // Create the room by name
-            PhotonNetwork.CreateRoom(lobbyName, roomOptions, TypedLobby.Default);
-            Debug.Log("Room created: " + lobbyName);
-
-            SceneManager.LoadScene("Selection");
+                if (PhotonNetwork.IsConnected)
+                {
+                    PhotonNetwork.JoinRoom(joinLobbyName);
+                }
+                else
+                {
+                    PhotonNetwork.ConnectUsingSettings();
+                }
+            }
+            else
+            {
+                Debug.LogError("Join Lobby Name is empty or invalid");
+            }
         }
         else
         {
-            Debug.LogError("Lobby Name is empty or invalid");
+            Debug.LogWarning("JoinLobbyNameInputField or Nickname is not assigned.");
         }
     }
 
-    public void HostLobbyTest() // just for testing joining servers
+    public void UpdatePlayerList()
     {
 
-        string lobbyName = "test";
-
-        if (!string.IsNullOrEmpty(lobbyName))
+        foreach (Player player in PhotonNetwork.PlayerList)
         {
-            RoomOptions roomOptions = new RoomOptions
-            {
-                MaxPlayers = 4, // Set the max players for the room
-                IsOpen = true,  // Make sure it is open
-            };
-
-            // Create the room by name
-            PhotonNetwork.CreateRoom(lobbyName, roomOptions, TypedLobby.Default);
-            Debug.Log("Room created: " + lobbyName);
-
-           /* SceneManager.LoadScene("Selection");*/
+            print(player.NickName);
         }
-        else
+
+        foreach (playerItem item in playerItemsList)
         {
-            Debug.LogError("Lobby Name is empty or invalid");
+            Debug.Log($"Destroying player item: {item.gameObject.name}"); 
+            Destroy(item.gameObject);
+        }
+        playerItemsList.Clear();
+
+        if (PhotonNetwork.CurrentRoom == null)
+        {
+            return;
+        }
+
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            playerItem newplayerItem = Instantiate(playerItemPrefab, playerItemParent);
+            playerItemsList.Add(newplayerItem);
+            if (newplayerItem != null)
+            {
+                newplayerItem.SetPlayerInfo(player.Value); // Correctly access the Value property
+                playerItemsList.Add(newplayerItem);
+            }
+            else
+            {
+                Debug.LogError("PlayerItem prefab is null!");
+            }
         }
     }
 
+    public void OnClickPlayButton()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel("Track 1");
+        }
+        else
+        {
+            Debug.LogWarning("Only the master client can start the game.");
+        }
+    }
 
-
-    public void OnJoinedRoom()
+    public override void OnJoinedRoom()
     {
         Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
-        // Handle successful join here, such as loading the multiplayer scene or enabling multiplayer UI
+        UpdatePlayerList();
     }
 
-    public void OnCreateRoomFailed(short returnCode, string message)
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        UpdatePlayerList();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerList();
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.LogError("Room creation failed: " + message);
         // Handle room creation failure, such as prompting the user with an error message
     }
-
 }
