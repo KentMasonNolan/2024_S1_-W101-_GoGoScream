@@ -95,11 +95,12 @@ GameObject:
   - component: {fileID: 7462891325270846115}
   - component: {fileID: 1941209634517585300}
   - component: {fileID: 3492062678021919529}
-  - component: {fileID: 4454336294708310246}
   - component: {fileID: 3431249994328445435}
   - component: {fileID: -4592629021238665187}
   - component: {fileID: 955271108343557925}
   - component: {fileID: 3492734791269778609}
+  - component: {fileID: 7771007563937539584}
+  - component: {fileID: 4774617161114522820}
   m_Layer: 0
   m_Name: car2
   m_TagString: Untagged
@@ -178,18 +179,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a8ebb8bb41595485783a3ab962cdc44d, type: 3}
---- !u!114 &4454336294708310246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7462891325278230883}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8d425244f2a4ae79b5052e1d21d89f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3431249994328445435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +344,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedDevice: 
+--- !u!114 &7771007563937539584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7462891325278230883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73742eda791a1c1449286184529e4183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 7
+  height: 3
+  centerOffset: {x: 0, y: 0, z: 0}
+  followOnStart: 1
+  smoothSpeed: 0.925
+--- !u!114 &4774617161114522820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7462891325278230883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86dac5d673f5664a9afcec115c35fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilt: 0
+  joystick: {fileID: 0}
+  canvas: {fileID: 0}
+  turnSpeed: 0
+  baseSpeed: 0
+  speedMultiplier: 500
+  audioThreshold: 0.01
+  horizontalInput: 0
+  moveForwardInput: 0
 --- !u!1 &7462891325278230885
 GameObject:
   m_ObjectHideFlags: 0
