@@ -21,6 +21,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform playerItemParent;
 
     public GameObject playButton;
+    public GameObject multiplayerRoom;
+    public GameObject lobbyRoom;
+    public GameObject hostRoom;
+    public GameObject joinRoom;
+
 
     private void Update()
     {
@@ -44,13 +49,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnHostConnect()
     {
-        if (lobbyNameInputField != null && nickname != null)
+        if (lobbyNameInputField != null && lobbyNameInputField.text.Length > 0 && nickname != null && nickname.text.Length > 0)
         {
             lobbyName = lobbyNameInputField.text;
             PhotonNetwork.NickName = nickname.text;
             
             PhotonNetwork.ConnectUsingSettings(); // In Photon, this calls OnConnectedToMaster(). This ensures the host is the "master"
-        }
+
+                multiplayerRoom.SetActive(false);
+                lobbyRoom.SetActive(true);
+}
         else
         {
             Debug.LogWarning("LobbyNameInputField or Nickname is not assigned.");
@@ -59,10 +67,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void JoinLobby()
     {
-        if (joinLobbyNameInputField != null && nickname != null)
+        if (joinLobbyNameInputField != null && joinLobbyNameInputField.text.Length > 0 && nickname != null && JoinNickName.text.Length > 0)
         {
             joinLobbyName = joinLobbyNameInputField.text;
             PhotonNetwork.NickName = JoinNickName.text;
+
+            joinRoom.SetActive(false);
+            lobbyRoom.SetActive(true);
 
             if (!string.IsNullOrEmpty(joinLobbyName))
             {
@@ -132,6 +143,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             Debug.LogWarning("Only the master client can start the game.");
         }
+    }
+
+    public void OnClickLeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        lobbyRoom.SetActive(false);
+        multiplayerRoom.SetActive(true);
     }
 
     public override void OnJoinedRoom()
