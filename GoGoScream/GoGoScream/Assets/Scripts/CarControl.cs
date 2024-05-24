@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 
 public class CarControl : MonoBehaviour
@@ -10,7 +11,7 @@ public class CarControl : MonoBehaviour
     public float tilt;
     private float forwardInput;
     public Joystick joystick;
-    public GameObject canvas;
+    public GameObject joyStickCanvas;
 
     public float turnSpeed;
     public float baseSpeed = 0f; // Base speed is 0 to stop movement when no sound detected
@@ -20,47 +21,108 @@ public class CarControl : MonoBehaviour
     public float moveForwardInput;
     private float speedTimer = 3.0f;
     private float powerupMultiplier = 550.0f;
+    public float speed;
 
+    public GameObject speedArrow;
+    public Vector3 arrowRotation = new Vector3(0, 0, 71);
+    private float minAngle = 75.0f;
+    private float maxAngle = -75.0f;
+
+
+    private Toggle tiltToggle;
+    private Toggle joystickToggle;
+    public GameObject pauseCanvas;
+    public bool paused = false;
 
     // Start is called before the first frame update
     void Start()
     {
         carRigidbody = GetComponent<Rigidbody>(); 
-        canvas = GameObject.Find("TouchUI");
-        joystick = canvas.transform.Find("Joystick").gameObject.GetComponent<Joystick>();
-        canvas.SetActive(true);
-        
+        joyStickCanvas = GameObject.Find("TouchUI");
+        joystick = joyStickCanvas.transform.Find("Joystick").gameObject.GetComponent<Joystick>();
 
+        speedArrow = GameObject.Find("arrow");
+    }
+
+    void Update()
+    {
+
+        pauseCanvas = GameObject.Find("PauseUI");
+        if(pauseCanvas.active || pauseCanvas.activeInHierarchy)
+        {
+            paused = true;
+        }
+
+         else 
+        {
+            paused = false;
+        }
     }
 
     void FixedUpdate()
     {
-        //Move car forward consistently
         tilt = Input.acceleration.x * 90;
         //Vector3 movement = transform.forward * carSpeed * Time.deltaTime;
         //carRigidbody.MovePosition(carRigidbody.position + movement);
 
+
+        tiltToggle = GameObject.Find("toggle tilt").gameObject.GetComponent<Toggle>();
+        joystickToggle = GameObject.Find("toggle joystick").gameObject.GetComponent<Toggle>();
+
+        
+
+        if(joystickToggle.isOn == true)
+        {
+        
+        joyStickCanvas.SetActive(true);
         //Joystick control
         forwardInput = joystick.Vertical * 2;
         transform.Translate(Vector3.forward * Time.deltaTime * turnSpeed * forwardInput);
 
+        }
+
+        if(joystickToggle.isOn != true)
+        {
+            joyStickCanvas.SetActive(false);
+        }
+
+        if(tiltToggle.isOn == true)
+        {
+            Debug.Log("tilt on");
         //Rotate the car left and right based on tilt
         Quaternion targetRotation = Quaternion.Euler(0, tilt, 0); //Speed of rotation
         carRigidbody.MoveRotation(Quaternion.Lerp(carRigidbody.rotation, targetRotation, 1 * Time.fixedDeltaTime));
+        }
+
+        
+
+        
+      
     }
 
     void LateUpdate()
     { 
+    
         horizontalInput = Input.GetAxis("Horizontal");
         moveForwardInput = Input.GetAxis("Vertical");
 
         //Adjust speed based on audio vol, only move if above threshold
         float currentVolume = UnityMicInputValues.micVolume;
-        float speed = (currentVolume > audioThreshold) ? baseSpeed + (currentVolume * speedMultiplier) : 0;
+        speed = (currentVolume > audioThreshold) ? baseSpeed + (currentVolume * speedMultiplier) : 0;
 
         //Apply the calculated speed to move the car forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+
+        if(speed >0)
+        {
+        speedArrow.transform.eulerAngles = new Vector3(0, 0, GetSpeedRotation()*(speed/100));
+        }
+
+        else{
+              speedArrow.transform.eulerAngles = new Vector3(0, 0, minAngle);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -75,5 +137,14 @@ public class CarControl : MonoBehaviour
         yield return new WaitForSeconds(speedTimer);
         speedMultiplier = 500.0f;
     }
+
+    private float GetSpeedRotation()
+    {
+        float totalAngleSize = minAngle - maxAngle;
+
+        return totalAngleSize;
+    }
+
+
 
 }
