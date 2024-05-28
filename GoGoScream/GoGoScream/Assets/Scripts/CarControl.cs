@@ -29,10 +29,9 @@ public class CarControl : MonoBehaviour
     private float maxAngle = -75.0f;
 
 
-    private Toggle tiltToggle;
-    private Toggle joystickToggle;
-    public GameObject pauseCanvas;
-    public bool paused = false;
+    public Toggle tiltToggle;
+    public Toggle joystickToggle;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -46,17 +45,8 @@ public class CarControl : MonoBehaviour
 
     void Update()
     {
-
-        pauseCanvas = GameObject.Find("PauseUI");
-        if(pauseCanvas.active || pauseCanvas.activeInHierarchy)
-        {
-            paused = true;
-        }
-
-         else 
-        {
-            paused = false;
-        }
+        tiltToggle = GameObject.Find("toggle tilt").gameObject.GetComponent<Toggle>();
+        joystickToggle = GameObject.Find("toggle joystick").gameObject.GetComponent<Toggle>();
     }
 
     void FixedUpdate()
@@ -65,11 +55,6 @@ public class CarControl : MonoBehaviour
         //Vector3 movement = transform.forward * carSpeed * Time.deltaTime;
         //carRigidbody.MovePosition(carRigidbody.position + movement);
 
-
-        tiltToggle = GameObject.Find("toggle tilt").gameObject.GetComponent<Toggle>();
-        joystickToggle = GameObject.Find("toggle joystick").gameObject.GetComponent<Toggle>();
-
-        
 
         if(joystickToggle.isOn == true)
         {
