@@ -7,7 +7,7 @@ public class CheckpointSingle : MonoBehaviour
     private TracklCheckpoints trackCheckpoints;
 
     private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent<PlayerController>(out PlayerController playercontroller)) {
+        if (other.TryGetComponent<CarControl>(out CarControl carcontrol)) {
             trackCheckpoints.PlayerThroughCheckpoint(this);
         }
     }
