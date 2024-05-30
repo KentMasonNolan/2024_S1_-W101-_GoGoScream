@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class CarControl : MonoBehaviour
 {
-    private Rigidbody carRigidbody;
+ private Rigidbody carRigidbody;
     public float tilt;
     private float forwardInput;
     public Joystick joystick;
     public GameObject joyStickCanvas;
 
-    // public float turnSpeed;
+    public float turnSpeed;
     public float baseSpeed = 0f; // Base speed is 0 to stop movement when no sound detected
     public float speedMultiplier = 500.0f; //Adjust speed based on how loud you need to speak to move
     public float audioThreshold = 0.01f; //Threshold for detecting audio, adjust based on testing
@@ -20,18 +20,17 @@ public class CarControl : MonoBehaviour
     public float moveForwardInput;
     private float speedTimer = 3.0f;
     private float powerupMultiplier = 550.0f;
-    // public float speed;
+    public float speed;
 
     public GameObject speedArrow;
     public Vector3 arrowRotation = new Vector3(0, 0, 71);
     private float minAngle = 75.0f;
     private float maxAngle = -75.0f;
 
+
     public Toggle tiltToggle;
     public Toggle joystickToggle;
    
-   private float speed = 30.0f;
-   private float turnSpeed = 100.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,21 +46,13 @@ public class CarControl : MonoBehaviour
     {
         tiltToggle = GameObject.Find("toggle tilt").gameObject.GetComponent<Toggle>();
         joystickToggle = GameObject.Find("toggle joystick").gameObject.GetComponent<Toggle>();
-
-        //Keyboard controls for testing
-
-        // horizontalInput = Input.GetAxis("Horizontal");
-        // forwardInput = Input.GetAxis("Vertical");
-
-        // transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        // transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
     }
 
     void FixedUpdate()
     {
         tilt = Input.acceleration.x * 90;
-        // Vector3 movement = transform.forward * carSpeed * Time.deltaTime;
-        // carRigidbody.MovePosition(carRigidbody.position + movement);
+        //Vector3 movement = transform.forward * carSpeed * Time.deltaTime;
+        //carRigidbody.MovePosition(carRigidbody.position + movement);
 
 
         if(joystickToggle.isOn == true)
@@ -107,12 +98,12 @@ public class CarControl : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
 
-        if(speed >0)
+        if(speed > 0)
         {
         speedArrow.transform.eulerAngles = new Vector3(0, 0, GetSpeedRotation()*(speed/100));
         }
 
-        else{
+        else {
               speedArrow.transform.eulerAngles = new Vector3(0, 0, minAngle);
         }
         
