@@ -1,26 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
+using NUnit.Framework;
 
-public class PauseTest
+public class OfflinePauseTest
 {
-    // A Test behaves as an ordinary method
-  
-    [UnityTest]
-    public IEnumerator Pause()
+    private GameObject gameObject;
+    private OfflinePause offlinePause;
+    private GameObject pauseMenu;
+
+    [SetUp]
+    public void Setup()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+        gameObject = new GameObject();
+        offlinePause = gameObject.AddComponent<OfflinePause>();
+
+        pauseMenu = new GameObject();
+        pauseMenu.SetActive(false); // Ensure it starts inactive
+        offlinePause.pauseMenu = pauseMenu;
     }
 
-    [UnityTest]
-    public IEnumerator Unpause()
+    [TearDown]
+    public void Teardown()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+        Object.DestroyImmediate(pauseMenu);
+        Object.DestroyImmediate(gameObject);
     }
+
+
+    [Test]
+    public void pauseMenuActive()
+    {
+        // Act
+        offlinePause.pauseGame();
+
+        // Assert
+        Assert.IsTrue(pauseMenu.activeSelf, "pause menu is activate when pause button clicked");
+    }
+
+     [Test]
+    public void pauseMenuInactive()
+    {
+        // Act
+        offlinePause.pauseGame(); // First pause the game to set it active
+        offlinePause.unpauseGame();
+
+        // Assert
+        Assert.IsFalse(pauseMenu.activeSelf, "pause menu is inactive when return to game is clicked");
+    }
+
+
+    [Test]
+    public void gamePaused()
+    {
+        // Act
+        offlinePause.pauseGame();
+
+        // Assert
+        Assert.AreEqual(0, Time.timeScale);
+    }
+
+    [Test]
+    public void gameUnpaused()
+    {
+        // Act
+        offlinePause.unpauseGame();
+
+        // Assert
+        Assert.AreEqual(1.0f, Time.timeScale);
+    }
+
+
+
+   
 }
