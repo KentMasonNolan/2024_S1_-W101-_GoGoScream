@@ -344,6 +344,8 @@
 -r:"Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
 -r:"Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Joystick.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/OfflineScripts.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/PhotonChat.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/PhotonRealtime.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/PhotonUnityNetworking.Editor.ref.dll"
@@ -410,10 +412,6 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Joystick Pack/Scripts/Editor/DynamicJoystickEditor.cs"
-"Assets/Joystick Pack/Scripts/Editor/FloatingJoystickEditor.cs"
-"Assets/Joystick Pack/Scripts/Editor/JoystickEditor.cs"
-"Assets/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs"
 "Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs"
 -langversion:9.0
 /unsafe+
