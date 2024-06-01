@@ -407,7 +407,6 @@
 "Assets/Scripts/FollowCar.cs"
 "Assets/Scripts/FollowPlayer.cs"
 "Assets/Scripts/ListAudioDevices.cs"
-"Assets/Scripts/MiniMap.cs"
 "Assets/Scripts/OnlineScript/CarGameManager.cs"
 "Assets/Scripts/OnlineScript/LobbyManager.cs"
 "Assets/Scripts/OnlineScript/OnlineCarControl.cs"
