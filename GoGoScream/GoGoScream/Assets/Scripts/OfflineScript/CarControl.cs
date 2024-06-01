@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CarControl : MonoBehaviour
 {
- private Rigidbody carRigidbody;
+    private Rigidbody carRigidbody;
     public float tilt;
     private float forwardInput;
     public Joystick joystick;
@@ -27,15 +27,13 @@ public class CarControl : MonoBehaviour
     private float minAngle = 75.0f;
     private float maxAngle = -75.0f;
 
-
     public Toggle tiltToggle;
     public Toggle joystickToggle;
-   
 
     // Start is called before the first frame update
     void Start()
     {
-        carRigidbody = GetComponent<Rigidbody>(); 
+        carRigidbody = GetComponent<Rigidbody>();
         joyStickCanvas = GameObject.Find("TouchUI");
         joystick = joyStickCanvas.transform.Find("Joystick").gameObject.GetComponent<Joystick>();
 
@@ -77,15 +75,10 @@ public class CarControl : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(0, tilt, 0); //Speed of rotation
         carRigidbody.MoveRotation(Quaternion.Lerp(carRigidbody.rotation, targetRotation, 1 * Time.fixedDeltaTime));
         }
-
-        
-
-        
-      
     }
 
     void LateUpdate()
-    { 
+    {
     
         horizontalInput = Input.GetAxis("Horizontal");
         moveForwardInput = Input.GetAxis("Vertical");
@@ -104,7 +97,7 @@ public class CarControl : MonoBehaviour
         }
 
         else {
-              speedArrow.transform.eulerAngles = new Vector3(0, 0, minAngle);
+            speedArrow.transform.eulerAngles = new Vector3(0, 0, minAngle);
         }
         
     }
