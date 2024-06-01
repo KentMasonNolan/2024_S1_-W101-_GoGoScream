@@ -1,8 +1,4 @@
 Library/Bee/artifacts/mvdfrm/Unity.Burst.ref.dll_A43E80D48102A6F4.mvfrm
-Library/Bee/artifacts/mvdfrm/UnityEditor.iOS.Extensions.Common.dll_C0BED47456DE6081.mvfrm
-Library/Bee/artifacts/mvdfrm/UnityEditor.iOS.Extensions.dll_7583FD759D8A5614.mvfrm
-Library/Bee/artifacts/mvdfrm/UnityEditor.iOS.Extensions.Xcode.dll_7810A9F082DFF65B.mvfrm
-Library/Bee/artifacts/mvdfrm/UnityEditor.WebGL.Extensions.dll_E2FE7FF717CD10F4.mvfrm
 Library/Bee/artifacts/mvdfrm/Unity.CompilationPipeline.Common.dll_C3963877D3FC2C4A.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEditor.Graphs.dll_0B8E7E637469294E.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEditor.CoreModule.dll_944C97EE801CBB1C.mvfrm
@@ -89,7 +85,7 @@ Library/Bee/artifacts/mvdfrm/UnityEngine.VRModule.dll_6CBABC7E03B5C914.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.WindModule.dll_2DBC4669B958A4B0.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.XRModule.dll_9F797F828CF01672.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEditor.OSXStandalone.Extensions.dll_19355D8634B257EF.mvfrm
-Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.dll_B4188CDC161D57C3.mvfrm
-Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.Mdb.dll_78A9E8875704F3C0.mvfrm
-Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.Pdb.dll_8FFC60F6D5B9F543.mvfrm
-Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.Rocks.dll_2105ECECA02C0BC3.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.dll_C40A928F4D28D608.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.Mdb.dll_4852A786A4295B45.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.Pdb.dll_5FA51FF622DE5CC8.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.Burst.Cecil.Rocks.dll_2D21780EBDCFC5E8.mvfrm

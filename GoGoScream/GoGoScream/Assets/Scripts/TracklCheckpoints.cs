@@ -10,17 +10,21 @@ public class TracklCheckpoints : MonoBehaviour
     private int totalLaps;
     private bool raceStart;
 
-    public GameObject canvas1;
-    public GameObject canvas2;
-    public GameObject canvas3;
+    public GameObject FinishUI;
+    public GameObject TouchUI;
+    public GameObject GameUI;
     public GameObject hud;
 
     void Start() {
-        canvas1 = GameObject.Find("FinishUI");
-        canvas2 = GameObject.Find("TouchUI");
-        canvas3 = GameObject.Find("GameUI");
+        FinishUI = GameObject.Find("FinishUI");
+        TouchUI = GameObject.Find("TouchUI");
+        GameUI = GameObject.Find("GameUI");
         hud = GameObject.Find("hud");
-        canvas1.SetActive(false);
+
+        if (FinishUI != null) FinishUI.SetActive(false);
+        if (TouchUI == null) Debug.LogError("TouchUI not found");
+        if (GameUI == null) Debug.LogError("GameUI not found");
+        if (hud == null) Debug.LogError("hud not found");
     }
 
     private void Awake() {
@@ -66,11 +70,17 @@ public class TracklCheckpoints : MonoBehaviour
     IEnumerator EndRace() {
         Debug.Log("Race Finished");
         yield return new WaitForSeconds(1);
-        canvas1.SetActive(true);
-        canvas2.SetActive(false);
-        canvas3.SetActive(false);
-        hud.SetActive(false);
         Time.timeScale = 0;
+
+        if (FinishUI != null) {
+            FinishUI.SetActive(true);
+            Debug.Log("FinishUI found");
+        } else {
+            Debug.LogError("FinishUI not found");
+        }
+        if (TouchUI != null) TouchUI.SetActive(false);
+        if (GameUI != null) GameUI.SetActive(false);
+        if (hud != null) hud.SetActive(false);
         raceStart = false;
     }
 }
