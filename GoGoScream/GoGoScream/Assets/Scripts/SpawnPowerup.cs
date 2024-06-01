@@ -5,23 +5,24 @@ using UnityEngine;
 public class SpawnPowerup : MonoBehaviour
 {
     public GameObject powerupPrefab;
+    public Transform[] spawnPoints;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Instantiate(powerupPrefab, transform, true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (GameObject.FindGameObjectsWithTag ("Powerup").Length == 0) {
-            StartCoroutine(PowerupSpawnRoutine());
+    void Start() {
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            StartCoroutine(PowerupSpawnRoutine(spawnPoint));
         }
     }
 
-    IEnumerator PowerupSpawnRoutine() {
-        yield return new WaitForSeconds(2);
-        Instantiate(powerupPrefab, transform, true);
+    IEnumerator PowerupSpawnRoutine(Transform spawnPoint) {
+        while (true)
+        {
+            if (spawnPoint.childCount == 0) {
+                GameObject powerup = Instantiate(powerupPrefab, spawnPoint.position, spawnPoint.rotation);
+                powerup.transform.SetParent(spawnPoint);
+            }
+            yield return new WaitForSeconds(2);
+        }
     }
 }
