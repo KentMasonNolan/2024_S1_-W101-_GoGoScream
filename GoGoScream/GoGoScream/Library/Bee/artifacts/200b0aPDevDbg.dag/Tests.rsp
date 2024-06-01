@@ -304,10 +304,11 @@
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managed/UnityEngine.VRModule.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managed/UnityEngine.WindModule.dll"
 -r:"/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll"
--r:"/Users/alei/Downloads/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"/Users/adrienne3/Documents/GitHub/2024_S1_-W101-_GoGoScream/GoGoScream/GoGoScream/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"Library/Bee/artifacts/200b0aPDevDbg.dag/OfflineScripts.ref.dll"
 -r:"Library/Bee/artifacts/200b0aPDevDbg.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/200b0aPDevDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/Tests/PlayMode/MiniMapTest.cs"
 "Assets/Tests/PlayMode/PauseTest.cs"
 -langversion:9.0
 
