@@ -20,19 +20,20 @@ public class OfflinePause : MonoBehaviour
 
     public void pauseGame()
     {
-       
+             Time.timeScale = 0;
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(true);
-            Time.timeScale = 0;
+      
         }
     }
 
     public void unpauseGame()
     {
+              Time.timeScale = 1.0f;
         if (pauseMenu != null)
         {
-               Time.timeScale = 1.0f;
+       
             pauseMenu.SetActive(false);
         }
     }
