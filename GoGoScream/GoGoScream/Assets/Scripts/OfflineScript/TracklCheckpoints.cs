@@ -5,9 +5,9 @@ using UnityEngine;
 public class TracklCheckpoints : MonoBehaviour
 {
     private List<CheckpointSingle> checkpointSingleList;
-    private int nextCheckpointSingleIndex;
+    public int nextCheckpointSingleIndex;
     private int lapCount;
-    private int totalLaps;
+    public int totalLaps;
     private bool raceStart;
 
     public GameObject FinishUI;
@@ -15,11 +15,11 @@ public class TracklCheckpoints : MonoBehaviour
     public GameObject GameUI;
     public GameObject hud;
 
-    void Start() {
-        FinishUI = GameObject.Find("FinishUI");
-        TouchUI = GameObject.Find("TouchUI");
-        GameUI = GameObject.Find("GameUI");
-        hud = GameObject.Find("hud");
+    public void Start() {
+        if (FinishUI == null) FinishUI = GameObject.Find("FinishUI");
+        if (TouchUI == null) TouchUI = GameObject.Find("TouchUI");
+        if (GameUI == null) GameUI = GameObject.Find("GameUI");
+        if (hud == null) hud = GameObject.Find("hud");
 
         if (FinishUI != null) FinishUI.SetActive(false);
         if (TouchUI == null) Debug.LogError("TouchUI not found");
@@ -27,15 +27,20 @@ public class TracklCheckpoints : MonoBehaviour
         if (hud == null) Debug.LogError("hud not found");
     }
 
-    private void Awake() {
+    public void Awake() {
         Transform checkpointsTransform = transform.Find("Checkpoints");
 
         checkpointSingleList = new List<CheckpointSingle>();
-        foreach (Transform checkpointSingleTransform in checkpointsTransform) {
-        CheckpointSingle checkpointSingle = checkpointSingleTransform.GetComponent<CheckpointSingle>();
-        checkpointSingle.SetTrackCheckpoints(this);
-
-        checkpointSingleList.Add(checkpointSingle);
+        if (checkpointsTransform != null)
+        {
+            foreach (Transform checkpointSingleTransform in checkpointsTransform) {
+                CheckpointSingle checkpointSingle = checkpointSingleTransform.GetComponent<CheckpointSingle>();
+                if (checkpointSingle != null)
+                {
+                    checkpointSingle.SetTrackCheckpoints(this);
+                    checkpointSingleList.Add(checkpointSingle);
+                }
+            }
         }
 
         nextCheckpointSingleIndex = 0;
@@ -82,5 +87,13 @@ public class TracklCheckpoints : MonoBehaviour
         if (GameUI != null) GameUI.SetActive(false);
         if (hud != null) hud.SetActive(false);
         raceStart = false;
+    }
+
+    public int GetLapCount() {
+        return lapCount;
+    }
+
+    public bool IsRaceFinished() {
+        return !raceStart;
     }
 }

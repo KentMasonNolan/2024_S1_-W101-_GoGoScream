@@ -400,7 +400,6 @@
 "Assets/PlayerSpawner.cs"
 "Assets/Scripts/CameraWork.cs"
 "Assets/Scripts/CarSelection.cs"
-"Assets/Scripts/CheckpointSingle.cs"
 "Assets/Scripts/DriveMenu.cs"
 "Assets/Scripts/FollowCar.cs"
 "Assets/Scripts/FollowPlayer.cs"
@@ -416,7 +415,6 @@
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Rotate.cs"
 "Assets/Scripts/SpawnPowerup.cs"
-"Assets/Scripts/TracklCheckpoints.cs"
 "Assets/Scripts/UnityMicInputValues.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
