@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckpointSingle : MonoBehaviour
 {
-    private TracklCheckpoints trackCheckpoints;
+    public TracklCheckpoints trackCheckpoints;
 
     private void OnTriggerEnter(Collider other) {
         if (other.TryGetComponent<CarControl>(out CarControl carcontrol)) {
